@@ -1,15 +1,14 @@
 from PIL import Image
 import os
 
-zdjecia = os.listdir()
-#print(zdjecia)
-for c in zdjecia:
-    if ".py" in c:
-        pass
-    else:
-        print(c)
-        pic = Image.open(c)
-        print(pic)
-        zdjecie = pic.transpose(Image.ROTATE_270)
-        zdjecie.save(c)
-        
+def rotate(img):
+    print(img)
+    pic = Image.open(img)
+    zdjecie = pic.transpose(Image.ROTATE_270)
+    zdjecie.save(img)
+
+if __name__ == "__main__":
+    images = os.listdir()
+    images.remove("rotate.py")
+    for img in images:
+        rotate(img)
